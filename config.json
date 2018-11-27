@@ -1,0 +1,75 @@
+{
+	"name": "UserRoles",
+
+	"namespace": "Vanderbilt\\DataCore\\UserRoles",
+
+	"description": "Allows administrators to define or redefine roles to simplify user access",
+
+	"documentation": "README.md",
+
+	"authors": [
+		{
+			"name": "Carl Reed",
+			"email": "carlreedw@gmail.com",
+			"institution": "Vanderbilt University Medical Center - VICTR - DataCore"
+		},
+		{
+			"name": "Ryan Moore",
+			"email": "ryan.p.moore@vanderbilt.edu",
+			"institution": "Vanderbilt University Medical Center - VICTR - DataCore"
+		}
+	],
+
+	"permissions": [
+
+	],
+	
+	"enable-every-page-hooks-on-system-pages": false,	
+
+	"links": {
+		"project": [
+			{
+				"name": "Manage User Roles",
+				"icon": "report",
+				"url": "manage_roles.php",
+				"access": "design"
+			}
+		],
+		"control-center": [
+			{
+				"name": "Manage User Roles",
+				"icon": "report",
+				"url": "manage_roles.php"
+			}
+		]
+	},
+
+	"no-auth-pages": [
+
+	],
+
+	"project-settings": [
+
+	],
+
+	"system-settings": [
+		{
+			"key": "master-pid",
+			"name": "User Roles Master Project ID",
+			"required": true,
+			"type": "project-id",
+			"repeatable": false
+		}
+	],
+
+	"crons": [
+
+	],
+
+	"compatibility": {
+		"php-version-min": "",
+		"php-version-max": "",
+		"redcap-version-min": "",
+		"redcap-version-max": ""
+	}
+}

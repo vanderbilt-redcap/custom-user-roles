@@ -1,0 +1,49 @@
+.roleButton:hover {
+	background-color: #e0ecff;
+}
+
+.roleButton:active {
+	background-color: #aacbff;
+}
+
+.roleButton.selected {
+	background-color: #c9ddff;
+}
+
+.fa-caret-down {
+	float: right;
+}
+
+.selected {
+	background-color: #c9ddff;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dd-container {
+    position: relative;
+    display: inline-block;
+}
+
+.dd-header {
+	min-width: 125px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dd-content {
+    display: none;
+    position: absolute;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dd-content * {
+	background-color: #eee;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dd-content *:hover {background-color: #ddd}
