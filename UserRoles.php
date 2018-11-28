@@ -277,9 +277,7 @@ class UserRoles extends \ExternalModules\AbstractExternalModule {
 					$savedata[$record_id][$eid]["tab_access_2"][$i] = "0";
 				}
 			}*/
-			echo "<pre>";
-			print_r($savedata);
-			echo "</pre>";
+
             $results = $recordsObject->saveData($pid, 'array', $savedata);
             if (method_exists($recordsObject,'addRecordToRecordListCache')) {
                 $recordsObject->addRecordToRecordListCache($pid, $record_id, $project->firstArmNum);
