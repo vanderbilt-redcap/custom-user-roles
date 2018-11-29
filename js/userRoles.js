@@ -108,9 +108,9 @@ $(function() {
 		$(".roleButton.selected").closest('tr').remove()
 		
 		// hide delete and rename buttons
-		$("#rolesDiv button:eq(1)").hide(100)
+		$("#rolesDiv button:eq(1)").show(100)
 		$("#rolesDiv button:eq(2)").hide(100)
-		$("#rolesDiv button:eq(3)").show(100)
+		$("#rolesDiv button:eq(3)").hide(100)
 		
 		// remove project access table rows and untoggle report/dashboard items
 		$(".btn").removeClass("selected")
@@ -344,7 +344,7 @@ $(function() {
 		var selectedRole = UserRoles.customRoles[$(".roleButton.selected").attr('record_id')]
 		
 		// show delete and rename buttons
-		$("#rolesDiv button:eq(1)").show(100)
+		$("#rolesDiv button:eq(3)").show(100)
 		$("#rolesDiv button:eq(2)").show(100)
 		
 		// add/remove project access rows as necessary to match existing role access
