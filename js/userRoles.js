@@ -312,7 +312,12 @@ $(function() {
 	}
 	for (var role_name in UserRoles.customRoles){
 		var role = UserRoles.customRoles[role_name]
-		role.projects = JSON.parse(role.projects)
+		try {
+            role.projects = JSON.parse(role.projects)
+        }
+        catch (err) {
+			role.projects = JSON.parse('{ }')
+		}
 	}
 	
 	// add roles
