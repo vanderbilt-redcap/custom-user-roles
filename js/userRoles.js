@@ -215,10 +215,12 @@ $(function() {
 			projectDropdown.val(String(pid)).change()
 			//UserRoles.seedRoleDagButtons(projectDropdown)
 		}
+
 		if (role_id) {
 			var roleDropdown = $("#projectsDiv tr:last .role-dd")
 			roleDropdown.val(String(role_id)).change()
 		}
+
 		if (group_id) {
 			var dagDropdown = $("#projectsDiv tr:last .dag-dd")
 			dagDropdown.val(String(group_id)).change()
@@ -316,7 +318,7 @@ $(function() {
             role.projects = JSON.parse(role.projects)
         }
         catch (err) {
-			role.projects = JSON.parse('{ }')
+			role.projects = JSON.parse('')
 		}
 	}
 	
@@ -339,16 +341,17 @@ $(function() {
 	//reportItems = UserRoles.reports.map(function(name, index) {return "<button reportid=\"" + index + "\" class=\"btn m-3\" type=\"button\">" + name + "</button>"})
 	//$("#reportsDiv .list").append(reportItems.join(''))
     $("#reportsDiv .list").append(reportItems)
-	
 	/////////// click handlers ->
 	// when click on role buttons ->
+
 	$("#rolesDiv").on("click", "td:nth-child(1) button", function() {
 		// user clicked a role
 		$(".roleButton").removeClass("selected")
 		$(this).addClass('selected')
+
 		var selectedRole = UserRoles.customRoles[$(".roleButton.selected").attr('record_id')]
-		
 		// show delete and rename buttons
+		var roleProjects= selectedRole.projects
 		$("#rolesDiv button:eq(3)").show(100)
 		$("#rolesDiv button:eq(2)").show(100)
 		
@@ -357,8 +360,12 @@ $(function() {
 
 		if (selectedRole.projects != null) {
             Object.keys(selectedRole.projects).forEach(function (pid, index) {
-                var role_id = selectedRole.projects[pid].role
-                var group_id = selectedRole.projects[pid].dag
+				if (typeof selectedRole.projects[pid] === "undefined") {
+                    selectedRole.projects[pid] = roleProjects[pid]
+					UserRoles.customRoles[$(".roleButton.selected").attr('record_id')].projects[pid] = roleProjects[pid]
+				}
+                var role_id = selectedRole.projects[pid]['role']
+                var group_id = selectedRole.projects[pid]['dag']
                 if (UserRoles.projects[pid]) {
                     UserRoles.addProjectRow(pid, role_id, group_id)
                 }
