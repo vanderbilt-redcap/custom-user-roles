@@ -318,7 +318,7 @@ $(function() {
             role.projects = JSON.parse(role.projects)
         }
         catch (err) {
-			role.projects = JSON.parse('')
+			role.projects = JSON.parse('{}')
 		}
 	}
 	
