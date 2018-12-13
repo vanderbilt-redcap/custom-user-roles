@@ -308,9 +308,20 @@ $(function() {
 	
 	// // Project divs section for add/remove buttons
 	// build projectList template string
-	for (var pid in UserRoles.projects){
+	var sortProjects = [];
+	for (var pid in UserRoles.projects) {
+		if (UserRoles.projects.hasOwnProperty(pid)) {
+			sortProjects[pid] = [pid, UserRoles.projects[pid].name]
+		}
+	}
+	function cmp(a,b) {
+		return a[1].localeCompare(b[1])
+	}
+	sortProjects.sort(cmp);
+
+	for (var index in sortProjects){
 		//UserRoles.templates.projectList += "<span>" + UserRoles.projects[pid].name + "</span>\n"
-        UserRoles.templates.projectList += "<option value='"+pid+"'>" + UserRoles.projects[pid].name + "</option>\n"
+        UserRoles.templates.projectList += "<option value='"+sortProjects[index][0]+"'>" + sortProjects[index][1] + "</option>\n"
 	}
 	for (var role_name in UserRoles.customRoles){
 		var role = UserRoles.customRoles[role_name]

@@ -309,7 +309,7 @@ class UserRoles extends \ExternalModules\AbstractExternalModule {
             WHERE p.project_id IN (SELECT projects.project_id
                 FROM redcap_projects projects, redcap_user_rights users
                 WHERE users.username = '$userID' and users.project_id = projects.project_id)
-            ORDER BY p.project_id";
+            ORDER BY p.app_title";
 	    //echo "$sql<br/>";
 	    $result = db_query($sql);
 	    while ($row = db_fetch_assoc($result)) {
@@ -323,7 +323,7 @@ class UserRoles extends \ExternalModules\AbstractExternalModule {
         $sql = "SELECT DISTINCT dags.group_id, dags.project_id, dags.group_name
             FROM redcap_data_access_groups dags
             WHERE dags.project_id IN (".implode(",",array_keys($pidList)).")
-            ORDER BY dags.project_id";
+            ORDER BY dags.group_name";
         //echo "$sql<br/>";
         $result = db_query($sql);
         while ($row = db_fetch_assoc($result)) {
@@ -337,7 +337,7 @@ class UserRoles extends \ExternalModules\AbstractExternalModule {
         $sql = "SELECT DISTINCT roles.role_id, roles.project_id, roles.role_name
             FROM redcap_user_roles roles
             WHERE roles.project_id IN (".implode(",",array_keys($pidList)).")
-            ORDER BY roles.project_id";
+            ORDER BY roles.role_name";
         $result = db_query($sql);
         while ($row = db_fetch_assoc($result)) {
             $returnString[$row['role_id']] = array('role_name' => $row['role_name'], 'project_id' => $row['project_id']);
