@@ -207,10 +207,14 @@ $(function() {
         projectRow.find(".project-dd").append(UserRoles.templates.projectList)
 
 		$("#projectsDiv").find("tbody").append(projectRow)
+
 		// if pid/role/dag supplied set those
+		$("#projectsDiv .project-dd").each(function() {
+			$("#projectsDiv tr:last .project-dd option[value='"+$(this).val()+"']").remove()
+		});
 		if (pid) {
-			$("#projectsDiv tr:last td:eq(0)").html(pid)
 			var projectDropdown = $("#projectsDiv tr:last .project-dd")
+			$("#projectsDiv tr:last td:eq(0)").html(pid)
 			// set project dropdown text and seed role/dag button options
 			projectDropdown.val(String(pid)).change()
 			//UserRoles.seedRoleDagButtons(projectDropdown)
