@@ -382,7 +382,7 @@ $(function() {
 				}
                 var role_id = selectedRole.projects[pid]['role']
                 var group_id = selectedRole.projects[pid]['dag']
-				console.log(UserRoles.projects);
+
                 if (UserRoles.projects[pid]) {
                     UserRoles.addProjectRow(pid, role_id, group_id)
                 }
