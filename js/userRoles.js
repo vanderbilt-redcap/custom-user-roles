@@ -4,7 +4,7 @@ $(function() {
 	// add json data to our global UserRoles object
 	// UserRoles.[customRoles, roles, dags, dashboards, reports]
 	UserRoles = JSON.parse($("#data").html())
-	console.log($("#data").html())
+	//console.log(UserRoles)
 
 	//Old 'dropdown' HTML for project rows
         /*`
@@ -271,6 +271,7 @@ $(function() {
 		var record_id = select.value;
 		if (String(record_id) != "") {
             var role = UserRoles.customRoles[record_id]
+			console.log(role);
             var falseCheckbox = "<input type=\"checkbox\">"
             var trueCheckbox = "<input type=\"checkbox\" checked>"
             let tableRow = `
