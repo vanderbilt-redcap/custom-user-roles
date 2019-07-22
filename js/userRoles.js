@@ -4,7 +4,7 @@ $(function() {
 	// add json data to our global UserRoles object
 	// UserRoles.[customRoles, roles, dags, dashboards, reports]
 	UserRoles = JSON.parse($("#data").html())
-	console.log(UserRoles)
+	//console.log(UserRoles)
 
 	//console.log(UserRoles.projects);
 	//Old 'dropdown' HTML for project rows
@@ -201,9 +201,7 @@ $(function() {
 	}
 	
 	UserRoles.addProjectRow = function(pid, role_id, group_id){
-		console.log('Pre return');
 		if ($(".roleButton.selected").length == 0) return
-		console.log('Post return');
 		let projectRow = $(UserRoles.templates.projectRow)
 		// seed new row first dropdown with list of projects
 		//projectRow.find(".dd-content").first().append(UserRoles.templates.projectList)
@@ -215,14 +213,11 @@ $(function() {
 		$("#projectsDiv .project-dd").each(function() {
 			$("#projectsDiv tr:last .project-dd option[value='"+$(this).val()+"']").remove()
 		});
-		console.log(projectRow);
-		console.log(pid);
 		if (pid) {
 			var projectDropdown = $("#projectsDiv tr:last .project-dd")
 			$("#projectsDiv tr:last td:eq(0)").html(pid)
 			// set project dropdown text and seed role/dag button options
 			projectDropdown.val(String(pid)).change()
-			console.log(projectDropdown);
 			//UserRoles.seedRoleDagButtons(projectDropdown)
 		}
 
