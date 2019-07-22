@@ -212,11 +212,14 @@ $(function() {
 		$("#projectsDiv .project-dd").each(function() {
 			$("#projectsDiv tr:last .project-dd option[value='"+$(this).val()+"']").remove()
 		});
+		console.log(projectRow);
+		console.log(pid);
 		if (pid) {
 			var projectDropdown = $("#projectsDiv tr:last .project-dd")
 			$("#projectsDiv tr:last td:eq(0)").html(pid)
 			// set project dropdown text and seed role/dag button options
 			projectDropdown.val(String(pid)).change()
+			console.log(projectDropdown);
 			//UserRoles.seedRoleDagButtons(projectDropdown)
 		}
 
@@ -375,15 +378,12 @@ $(function() {
 
 		if (selectedRole.projects != null) {
             Object.keys(selectedRole.projects).forEach(function (pid, index) {
-            	console.log(pid);
 				if (typeof selectedRole.projects[pid] === "undefined") {
                     selectedRole.projects[pid] = roleProjects[pid]
 					UserRoles.customRoles[$(".roleButton.selected").attr('record_id')].projects[pid] = roleProjects[pid]
 				}
                 var role_id = selectedRole.projects[pid]['role']
                 var group_id = selectedRole.projects[pid]['dag']
-				console.log(role_id);
-				console.log(group_id);
                 if (UserRoles.projects[pid]) {
                     UserRoles.addProjectRow(pid, role_id, group_id)
                 }
