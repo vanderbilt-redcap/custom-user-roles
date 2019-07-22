@@ -6,6 +6,7 @@ $(function() {
 	UserRoles = JSON.parse($("#data").html())
 	//console.log(UserRoles)
 
+	console.log(UserRoles.projects);
 	//Old 'dropdown' HTML for project rows
         /*`
 			<tr>
@@ -388,7 +389,6 @@ $(function() {
                 var group_id = selectedRole.projects[pid]['dag']
 				console.log(UserRoles.projects);
                 if (UserRoles.projects[pid]) {
-                	console.log('User role set for '+pid);
                     UserRoles.addProjectRow(pid, role_id, group_id)
                 }
                 // console.log("pid: " + pid)
