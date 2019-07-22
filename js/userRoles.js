@@ -200,7 +200,9 @@ $(function() {
 	}
 	
 	UserRoles.addProjectRow = function(pid, role_id, group_id){
+		console.log('Pre return');
 		if ($(".roleButton.selected").length == 0) return
+		console.log('Post return');
 		let projectRow = $(UserRoles.templates.projectRow)
 		// seed new row first dropdown with list of projects
 		//projectRow.find(".dd-content").first().append(UserRoles.templates.projectList)
