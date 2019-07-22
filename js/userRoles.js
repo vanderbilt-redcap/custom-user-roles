@@ -374,14 +374,16 @@ $(function() {
 		$("#projectsDiv tbody").html("")
 
 		if (selectedRole.projects != null) {
-			console.log(selectedRole);
             Object.keys(selectedRole.projects).forEach(function (pid, index) {
+            	console.log(pid);
 				if (typeof selectedRole.projects[pid] === "undefined") {
                     selectedRole.projects[pid] = roleProjects[pid]
 					UserRoles.customRoles[$(".roleButton.selected").attr('record_id')].projects[pid] = roleProjects[pid]
 				}
                 var role_id = selectedRole.projects[pid]['role']
                 var group_id = selectedRole.projects[pid]['dag']
+				console.log(role_id);
+				console.log(group_id);
                 if (UserRoles.projects[pid]) {
                     UserRoles.addProjectRow(pid, role_id, group_id)
                 }
