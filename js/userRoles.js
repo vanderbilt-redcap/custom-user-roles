@@ -4,9 +4,9 @@ $(function() {
 	// add json data to our global UserRoles object
 	// UserRoles.[customRoles, roles, dags, dashboards, reports]
 	UserRoles = JSON.parse($("#data").html())
-	//console.log(UserRoles)
+	console.log(UserRoles)
 
-	console.log(UserRoles.projects);
+	//console.log(UserRoles.projects);
 	//Old 'dropdown' HTML for project rows
         /*`
 			<tr>
