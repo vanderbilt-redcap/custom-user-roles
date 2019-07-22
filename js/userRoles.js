@@ -271,7 +271,6 @@ $(function() {
 		var record_id = select.value;
 		if (String(record_id) != "") {
             var role = UserRoles.customRoles[record_id]
-			console.log(role);
             var falseCheckbox = "<input type=\"checkbox\">"
             var trueCheckbox = "<input type=\"checkbox\" checked>"
             let tableRow = `
@@ -375,6 +374,7 @@ $(function() {
 		$("#projectsDiv tbody").html("")
 
 		if (selectedRole.projects != null) {
+			console.log(selectedRole);
             Object.keys(selectedRole.projects).forEach(function (pid, index) {
 				if (typeof selectedRole.projects[pid] === "undefined") {
                     selectedRole.projects[pid] = roleProjects[pid]
